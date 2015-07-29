@@ -1,1204 +1,133 @@
-
-<!-- INCLUDES DO SISTEMA DE SEGURANCA -->
-
-	<link rel="shortcut icon" type="image/x-icon" href="http://sistemasnet/psv/imagens/icones/16x16/favicon.ico" />
-		<script>
-			/*
-			 * Scripts JS
-			 */
-			
-			function comboChange( comoBox, usado )
-			{ 
-				window.open( comoBox.options[ comoBox.selectedIndex ].value );
-				if ( usado )
-					comoBox.selectedIndex = 0;
-			}
-			
-			function startIt()
-			{
-				//To-Do
-			}
-			
-			function sis()
-			{
-				clearTimeout();	
-			}
-	
-			window.onload = function()
-			{
-
-					document.body.onmousemove=getOnMouseOverMenu;
-					escondeMenuSis( true );
-
-				// Funcao que chama os onLoad's dos sistemas interativos com o SIS.
-				startIt();
-				
-				if( document.getElementById( "iframeMenu" ) != undefined )
-				{
-					document.getElementById( "iframeMenu" ).style.visibility = "hidden";
-				}		
-			}
-	
-			// posicao x da janela
-			var windowX;
-			// posicao y da janela
-			var windowY;
-		</script>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="pt-br">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" >
-<style type="text/css">@import url( /sis/etc-SISAPI/estilos/estilo_topoSIS.css );</style>
-
-<title>
-SIACCO - SISTEMA DE ACOMPANHAMENTO DE CONTROLE SOCIETÁRIO - [SIS versão 2.2.62]
-</title>
-</head>
-
-
-	<div id="MainMenu" style="position:absolute; z-index:999; width:140px; height:25px; top:102px; left:7px;" class="txtdestaque" vAlign="top" onmouseover="document.getElementById( 'menuprincipal' ).style.visibility=''; escondeMenuSis(false);">
-		<img height="18" src="/sis/include/Menu/sis_menu_0.gif" id="tableMenuPrincipal" alt="Menu" border="0" style="cursor:pointer;"  onmouseover="document.getElementById( 'menuprincipal' ).style.visibility=''; escondeMenuSis(false);" >
-	</div>
-	<div id="ChildDivMenu" style="position:absolute; z-index:1000; width:140px; height:8px; top:120px; left:7px;">		
-		<iframe id="iframeMenu" style="position:absolute; z-index:-1000; display:none; height:2px;" >	
-		</iframe>
-		<input type="hidden" id="hiddenChildDivMenu" name="hiddenChildDivMenu" />
-	</div>
-	
-<div onmouseover='escondeMenuSis(false);' onmouseout='if( browserType != "ie" )escondeMenuSis(true);' id='menuprincipal' style='visibility:hidden;'> 
-<ul onmouseover='escondeMenuSis(false);' id='qm0' class='qmmc'>
-<li id='limenuinterno' onmouseover='escondeMenuSis(false);'><a class='qmparent' href='javascript:onFocusMenu();' onmouseover='escondeMenuSis(false);'>Consultas Gerais</a><ul id='ulmenuinterno' onmouseover='escondeMenuSis(false);'><li id='limenuinterno' onmouseover='escondeMenuSis(false);'><a href='http://sistemas.anatel.gov.br/siacco/_Novo_Siacco/Relatorios/PerfilDasEmpresas/Tela.asp?SISQSmodulo=2647' onmouseover='escondeMenuSis(false);'>Perfil das Empresas</a></ul></li></ul></li></ul></div>
-
-
-
-<body> 
-
-<!-- ### INICIO: Cabeçalho Governo Federal -->
-<div id="barra_governo">
-    <a class="brasilgov" href="http://www.brasil.gov.br" title="Portal de Estado do Brasil" target="_blank" />
-    <a class="acessoinfo" href="http://www.acessoainformacao.gov.br/acessoainformacaogov" title="Acesso à informação" target="_blank" />
-</div>
-<!-- ### FINAL: Cabeçalho Governo Federal -->
-
-
-<!-- ### INICIO: Cabeçalho Anatel -->
-<div id="headanatelTopoSIS">
-	<a HREF="http://www.anatel.gov.br/Portal/exibirPortalInternet.do" TARGET="_blank"> 
-		<img src="/sis/etc-SISAPI/images/cabecalho/topo_01.gif" alt="Acesse a página inicial" width="323" height="72" border="0" tabindex="103">
-	</a>
-</div>
-<div id="usuarioTopoSIS">
-
-</div>
-
-<!-----************ INICIO MENU ************----->
-<!------ Incluindo arquivo que colhe o array de opções do menu. ------->
-<style type="text/css">
-	@import url( /sis/etc-SISAPI/themes/estilo_menu.css );
-</style>
-<script src="/sis/etc-SISAPI/scripts/scriptMenuNovo.js"></script>
-
-<script type="text/javascript">
-	qm_create( 0, false, 0, 500, true, false, false, false );
-</script>
-<script>
-	/** Correcao da posição da listagem do menu! **/
-	function corrigePosicaoMenu()
-	{
-		var nodePai = document.getElementById( "hiddenChildDivMenu" ).parentNode;
-		nodePai.appendChild( document.getElementById( "menuprincipal" ) );
-	}
-	corrigePosicaoMenu();
-</script>
-<!-----************ FIM MENU ************----->
-
-<!-- ### FINAL: Cabeçalho Anatel -->
-<div id="funcionalidadeTopoSIS">
-	<br />
-	<table align="right" class="menuContextoSIS" border="0" cellspacing="0" cellpadding="0" valign="top">
+<div id="divconsulta" name="divconsulta">
+	<table>
+		<tr>
+			<td class="lin"></td>
+		</tr>
 		<tr>
 			<td>
-				<table width="150"></table>
-			</td>
-			<td valign="middle" align="right">
-				<span>
-
-							<a class="SIS_link" HREF STYLE="cursor:hand">
-								SIACCO :: Sistema de Acompanhamento de Controle Societário&nbsp;</a>
-
-				</span>
-			</td>
-			<td valign="middle" nowrap>
-				<img SRC="/sis/etc-SISAPI/images/out_separadorrodape.gif" ALT="Espaçamento" WIDTH="2" HEIGHT="17" align="middle">&nbsp;
-&nbsp;<a href='#' class='SIS_link' tabindex='203' onclick='document.location="http://sistemas.anatel.gov.br/siacco/?SISQSmodulo=0"'>menu&nbsp;</a>
-				<a HREF="#" class="SIS_link" ONCLICK="window.open(linkHelp(), 'help', 'toolbar=0,status=0,menubar=0,resizable=1,width=' + ((screen.availWidth/1.5) - 10) + ',height=' + (screen.availHeight - 30) + ',left=' + (screen.availWidth/3) + ',top=0')">&nbsp;ajuda&nbsp;</a>
+				<label class="TituloTela" id="titulofrmacao" name="titulofrmacao">Perfil das Empresas - LITORAL RADIODIFUSAO LTDA.</label>
 			</td>
 		</tr>
 	</table>
-</div>
-
-<div id="abasTopoSIS">
-
-		<a href="http://sistemas.anatel.gov.br/" tabindex="205">
-
-			<img src="/sis/etc-SISAPI/images/cabecalho/abasis.gif" border="0" alt="Menu principal" title="Menu principal" longdesc="Menu principal" tabindex="200"> 
-		</a>
-</div>
-<table border="0" height="105"><tr><td>&nbsp;</td></tr></table>
-<select style="display:none" id="select1" name="select1"></select>
-
-
-<!-- INCLUDES DAS CLASSES SISTEMA  -->
-
-<SCRIPT LANGUAGE=javascript defer>
-	/* COOLBAR.JS */
-
-// Configura algumas constantes para a execução do script
-
-var sOffBackColor = "threedface";
-var sOffTextColor = "menutext"
-var sOffBorderColor = "threedface";
-var sOffPadding = "1px 1px 1px 1px";
-
-var sOverBackColor = "threedface";
-var sOverTextColor = "menutext"
-var sOverBorderColor = "threedhighlight threedshadow threedshadow threedhighlight";
-var sOverPadding = "1px 1px 1px 1px";
-
-var sDownBackColor = "window"
-var sDownTextColor = "menutext"
-var sDownBorderColor = "threedshadow threedhighlight threedhighlight threedshadow";
-var sDownPadding = "2px 0px 0px 2px";
-
-var sPaneName = "";
-var eActiveButton = null;
-
-//var divAcao = new Array(100);
-//var dimensao = 0;
-
-function SetButtonPadding(eButton,sPaddingStyle)
-{
-	eButton.rows[0].cells[0].style.padding = sPaddingStyle;
-	eButton.rows[0].cells[1].style.padding = sPaddingStyle;
-}
-	
-function SetButtonImage(eButton,sState)
-{
-	var eImg = eButton.rows[0].cells[0].children[0];
-	eImg = eImg.children[0];
-	if (eImg) 
-	{
-		var sImgSrc = eImg.src;
-		if (sImgSrc.match(/_(\w+)\.gif/)) 
-		{
-			eImg.src = sImgSrc.replace(RegExp.$1,sState);
-		}
-	}
-}
-	
-// 4 funções para manusear eventos dos botões
-
-function button_over(eButton)
-{
-
-	// Se estamos somente mexendo o mouse dentro do botão, vamos sair
-	if (window.event && eButton.contains(window.event.fromElement)) return false;
-
-	// Caso contrário, muda o estilo do botão
-	eButton.style.backgroundColor = sOverBackColor;
-	eButton.style.color = sOverTextColor;
-	if (eActiveButton != eButton)
-	{
-		eButton.style.borderColor = sOverBorderColor;
-		SetButtonImage(eButton,"over");
-	}
-}
-
-
-function button_out(eButton)
-{
-	// Se estamos somente mexendo o mouse dentro do botão, vamos sair
-	if (window.event && eButton.contains(window.event.toElement)) return false;
-
-	// Caso contrário, muda o estilo do botão
-	if (eActiveButton != eButton && eButton != null)
-	{
+	<table id="" class="Tabela">
+		<tr>
+			<td class="SubTituloDireita">CNPJ:</td>
+			<td class="CampoEsquerda"><label>00524045000165</label></td>
+		</tr>
+		<tr>
+			<td class="SubTituloDireita">Presidente:</td>
+			<td class="CampoEsquerda"><label></label></td>
+		</tr>
+		<tr>
+			<td class="SubTituloDireita">Endereço:</td>
+			<td class="CampoEsquerda"><label>PRACA  TIRADENTES - CENTRO</label></td>
+		</tr>
+		<tr>
+			<td class="SubTituloDireita">E-mail:</td>
+			<td class="CampoEsquerda"><label></label></td>
+		</tr>
+		<tr>
+			<td class="SubTituloDireita">Capital Social:</td>
+			<td class="CampoEsquerda"><label>70.000,00</label></td>
+		</tr>
+		<tr>
+			<td class="SubTituloDireita">Reserva de Capital:</td>
+			<td class="CampoEsquerda"><label></label></td>
+		</tr>
+		<tr>
+			<td class="SubTituloDireita">Total:</td>
+			<td class="CampoEsquerda"><label>70.000,00</label></td>
+		</tr>
+	</table>
+	<table id="">
+		<tr>
+			<td>
+				<label class="SubTituloTela" id="subTitulofrmacao" name="subTitulofrmacao">Quadro Societário</label>
+			</td>
+		</tr>
+	</table>
+	<table id="" class="Tabela">
 		
-		eButton.style.backgroundColor = sOffBackColor;
-		eButton.style.borderColor = sOffBorderColor;
-		eButton.style.color = sOffTextColor;
-		SetButtonPadding(eButton,sOffPadding);
-		SetButtonImage(eButton,"off")
-	}
-	else if(eButton != null)
-	{
-		eButton.style.backgroundColor = sDownBackColor;
-		eButton.style.borderColor = sDownBorderColor;
-		eButton.style.color = sDownTextColor;
-	}
-}
-
-function button_down(eButton)
-{
-	eButton.style.borderColor = sDownBorderColor;
-	SetButtonPadding(eButton,sDownPadding);
-}
-
-function button_up(eButton)
-{
-
-	// Se outro botão está ativo, reseta o botão
-	if (null != eActiveButton && eButton != eActiveButton)
-	{
-		eActiveButton.style.backgroundColor = sOffBackColor;
-		eActiveButton.style.borderColor = sOffBorderColor;
-		eActiveButton.style.color = sOffTextColor;
-		SetButtonImage(eActiveButton,"off");
-		SetButtonPadding(eActiveButton,sOffPadding);
-		eActiveButton = null; 
-
-		// insert code here for button hiding 
-		window.status = window.defaultStatus;
-	}
-
-	// Se o botão que clicamos não está ativo, torna-o ativo
-	if (eButton != eActiveButton)  
-	{
-		eActiveButton = eButton;
-		eActiveButton.style.borderColor = sDownBorderColor;
-		eActiveButton.style.color = sDownTextColor;
-		SetButtonPadding(eActiveButton,sDownPadding);
-		sPaneName = eActiveButton.id.replace(/tbl(.*)Button/,"$1");
-
-		// insert code here for button showing 
-		//window.status = "Now showing: " + sPaneName;
-	}
-	// Caso contrário, reseta o botão
-	else  
-	{
-		if (eActiveButton != null){
-			eActiveButton.style.backgroundColor = sOverBackColor;
-			eActiveButton.style.borderColor = sOverBorderColor;
-			eActiveButton.style.color = sOverTextColor;
-			SetButtonPadding(eActiveButton,sOverPadding);
-			eActiveButton = null;
-		}
-		// Inserir o código aqui para esconder o botão
-		window.status = window.defaultStatus;
-	}
-}
-function setActiveButton(eButton)
-{
-	eActiveButton = eButton;
-}
-
-function trocaCaptionBotao(id, caption)
-{
-	id.innerHTML = caption;
-	id.title = caption;
-}
-
-function escondeBotao(id,index)
-{
-	if (index == null){
-		if (id!=null)
-			id.style.display = 'none';
-	}
-	else{
-		if (id[index]!=null)
-			id[index].style.display = 'none';
-	}
-}
-
-function exibeBotao(id, index)
-{
-	if (index == null){
-		if (id!=null)
-			id.style.display = '';
-	}
-	else{
-		if (id[index]!=null)
-			id[index].style.display = '';
-	}
-}
-
-///////////////////////////////////////////////////////////////////////
-// Função:		restauraEstadoBotoes
-// Objetivo:	Restaura botoes da tela em caso de parada crítica 
-function restauraEstadoBotoes(objBotao)
-{
-    try{
-	    var achou=false;
-	    for (var dim=0; dim < captionBotoes.length-1; dim++){
-		    if (captionBotoes[dim]!=null){
-			    if (captionBotoes[dim].botao.id != null && captionBotoes[dim].botao.id != undefined){
-				    if (objBotao.id == captionBotoes[dim].botao.id){
-					    achou = true;
-					    break;
-				    }
-			    }
-		    }
-	    }
-	    if (achou){
-		    objBotao.innerHTML = captionBotoes[dim].caption;
-	    }	
-	    objBotao.disabled = false;
-	}catch(e){
-	    alert(e.message);
-	}
-}
-
-///////////////////////////////////////////////////////////////////////
-// Função:		mostraMsg
-// Objetivo:	Mostra mensagem na barra de status da tela ativa
-function mostraMsgBarra(msg,i)
-{
-	if (msg !=''){
-		if (_ie){
-			if (document.all('ajuda',i) != null)
-				document.all('ajuda',i).innerHTML = msg;
-		}
-		else{
-			if (document.getElementById('ajuda',i) != null)
-				document.getElementById('ajuda',i).innerHTML = msg;
-		}
-	}
-}
-
-// Função:		exibeGuiaConteudo
-// Objetivo:	exibe a guia conteudo que foi clicada
-function exibeGuiaConteudo(divs,divExibir, acao, form, botao) {
-	var i,j=0, obj;
-	arrayDivs = divs.split(",")
-	j = arrayDivs.length;
-
-	//var botoes = document.all.tags("button");
-	var botoes = document.getElementsByTagName("button");
-	
-	if (botoes!=null) {
-		for (i=0; i<botoes.length; i++){
-			botoes[i].style.borderRight = 'thin outset';
-			botoes[i].style.borderLeft = 'thin outset';
-			botoes[i].style.borderBottom = 'thin outset';
-			botoes[i].style.borderTop = 'thin outset';
-		}
-	}
-	if (botao != null){
-		botao.style.borderRight = 'thin inset';
-		botao.style.borderLeft = 'thin inset';
-		botao.style.borderBottom = 'thin inset';
-		botao.style.borderTop = 'thin inset';
-	}
-	for (i=0; i<j; i++){
-		if (document.getElementById(arrayDivs[i]) != null){
-			if (document.getElementById(arrayDivs[i]).id == divExibir ){
-				if (document.getElementById(arrayDivs[i]) != null){
-					document.getElementById(arrayDivs[i]).style.display ='';
-					obj = document.getElementById(arrayDivs[i])
-				}
-				else
-					alert('A página atual não terminou de ser carregada em seu computador!\n\nClique em OK.')
-			}
-			else{
-				if (document.getElementById(arrayDivs[i]) != null)
-					document.getElementById(arrayDivs[i]).style.display ='none';
-				else
-					alert('A página atual não terminou de ser carregada em seu computador!\n\nClique em OK.')
-			}
-		}
-		else
-			alert('A página atual não terminou de ser carregada em seu computador!\n\nClique em OK.')
-	}
-
-	// Restaura a acao de acordo com a guia de conteudo
-	if (form.acao != null) 
-		form.acao.value = acao
-	else
-		alert('A página atual não terminou de ser carregada em seu computador!\n\nClique em OK.')
-}
-
-// Objeto que armazena as divs de conteudo e as suas respectivas variáveis acao associadas
-function divConteudoAcao(div,acao)
-{
-	this.div = div;
-	this.acao = acao;
-}
-
-</SCRIPT>
-<input type="hidden" name="MenuPopUpContador">
-<SCRIPT LANGUAGE=javascript>
-		
-	/* MENUPOPUP.JS */
-	
-	function VerificaFilho(parParentName, parElement) {
-		if (parElement.name != 'undefined') {
-			while (parElement.name != parParentName || parElement.name != null) {
-				//alert('pai: '+parElement.name);
-				if (parElement.name == parParentName) {
-					return("true");
-				}
-				parElement = parElement.parentElement;
-				if (parElement == null) {
-					return("false");
-				}
-			}
-			return("false");
-		}
-		return("false");
-	}
-	
-	function efeitoSelecionado(ct)
-	{
-		document.all('objInicial'+ct).style.color='crimson';
-		document.all('objInicial'+ct).style.fontWeight='bold';
-	}
-	
-	function efeitoNaoSelecionado(ct)
-	{
-		document.all('objInicial'+ct).style.color='black';
-		document.all('objInicial'+ct).style.fontWeight='';
-	}
-	
-	// variável para manter o popmenu ativo
-	var mantemAtivo=1, flag='', controle, timeoutID,timeoutID2;
-	
-	function menuPopUp(ct) {
-		//alert('event.type: ' + event.type);
-		//alert('event.type: ' + event.type + '\n\nfromElement: '+event.fromElement+'\nfromElement.name: ' + event.fromElement.name + '\nfromElement.tagName: ' + event.fromElement.tagName + '\n\ntoElement: ' + event.toElement + '\ntoElement.name: ' + event.toElement.name + '\ntoElement.tagName: ' + event.toElement.tagName );
-		
-		if (event.type == 'mouseout')
-		{
-			flag = 'fora';
-			timeoutID2 =	setTimeout('retiraMenu(' + ct + ')', 30);
+		<!--Foi alterado de estático 100% para dinâmico utilizando o parâmetro varTBWidthPlus e a property TBWidthPlus para atender a demanda 12073/2010. Esta alteração foi acordado junto ao analista do sistema dia 15/06/2010. -->
+		<table class="Tabela">
+			<tr>
+				<th class="SubTituloCentro" width="*%">CNPJ / CPF
+				</th>
+				<th class="SubTituloCentro" width="*%">NOME
+				</th>
+				<th class="SubTituloCentro" width="*%">Quantidade<br>Ordinárias
+				</th>
+				<th class="SubTituloCentro" width="*%">Valor<br>Ordinárias
+				</th>
+				<th class="SubTituloCentro" width="*%">Quantidade<br>Preferenciais
+				</th>
+				<th class="SubTituloCentro" width="*%">Valor<br>Preferenciais
+				</th>
+			</tr>
 			
-			//alert('1->' + flag + ' - ' +  event.fromElement.name)
-			
-			if (mantemAtivo == 0){
-				var VerificaFilhoFromElement;
-				var VerificaFilhoToElement;
-				VerificaFilhoFromElement = VerificaFilho('tblMenuPopUp', event.fromElement);
-				VerificaFilhoToElement = VerificaFilho('tblMenuPopUp', event.toElement);
-				if (event.fromElement.name == 'objInicial' && VerificaFilhoToElement == 'true') {
-					document.all('divPopUp'+ct).style.display = '';
-					efeitoSelecionado(ct);
-				} else {
-					if (VerificaFilhoToElement == 'true' && VerificaFilhoFromElement == 'true') {
-						document.all('divPopUp'+ct).style.display = '';
-						efeitoSelecionado(ct);
-					} else {
-						document.all('divPopUp'+ct).style.display = 'none';
-						efeitoNaoSelecionado(ct);
-					}
-				}
-			}
-		}
-		if (event.type == 'mouseover') 
-		{
-			mantemAtivo = 1;
-			flag = 'dentro';
-			//controle = ct;
-			timeoutID =	setTimeout('mantemMenu(' + ct + ')', 1000);
-			
-			escondeMenu();
-			document.all('divPopUp'+ct).style.display = '';
-			efeitoSelecionado(ct);
-		}
-		if (event.type == 'click' || event.type == 'mouseup') {
-			if (document.all('divPopUp'+ct).style.display == 'none') {
-				document.all('divPopUp'+ct).style.display = '';
-				efeitoSelecionado(ct);
-			} else {
-				document.all('divPopUp'+ct).style.display = 'none';
-				efeitoNaoSelecionado(ct);
-			}
-		}
-	}
-
-	function mantemMenu(ct)
-	{
-		if (flag == 'fora'){
-			document.all('divPopUp'+ct).style.display = 'none';
-			efeitoNaoSelecionado(ct);
-			mantemAtivo = 0
-			clearTimeout(timeoutID);
-		}
-	}
-
-	function retiraMenu(ct)
-	{
-		if (flag == 'fora'){
-			escondeMenu();
-			mantemAtivo = 0;
-			clearTimeout(timeoutID2);
-		}
-	}
-	
-	function escondeMenu(){
-		for (var i=1;i<=document.all('MenuPopUpContador').value;i++) {
-			document.all('divPopUp' + i).style.display = 'none';
-			efeitoNaoSelecionado(i);
-		}
-	}
-	
-	function abrirNovaJanelaPopUp(parURL, parNomeTela)
-	{
-		varJanela = window.open(parURL, parNomeTela, "toolbar=yes,resizable=yes,location=yes,scrollbars=yes,directories=yes,status=yes,menubar=yes,top=0,left=0");
-		varJanela.focus();
-	}
-</SCRIPT>
-
-
-<script src="/apoio_sitarweb/includes/funcoes/jquery-1.11.0.js"></script>
-
-
-<script LANGUAGE="javascript">
-    function transformaCampoObrigatorio(obj, indObrigatorio, i) {
-        var objimg;
-
-        if (obj != null) {
-            if ((obj.type != 'select-one' && obj.type != 'select-multiple') && typeof (obj.length) != 'undefined' && typeof (obj) != null) {
-                if (obj.length > 0) {
-                    transformaCampoObrigatorioArray(obj, indObrigatorio)
-                }
-                return true;
-            }
-
-            if (_ie) {
-                objimg = document.all('ImgObrigatorio' + obj.name);
-            }
-            else {
-                objimg = document.getElementById('ImgObrigatorio' + obj.name);
-            }
-        }
-
-        if (indObrigatorio == null) {
-            if ((obj.obrigatorio == 's') || (obj.obrigatorio == 'S')) {
-                obj.obrigatorio = 'n';
-                if (objimg.length > 0)
-                    objimg[i].style.display = 'none';
-                else
-                    objimg.style.display = 'none';
-            } else {
-                obj.obrigatorio = 's';
-
-                if (objimg.length > 0)
-                    objimg[i].style.display = '';
-                else
-                    objimg.style.display = '';
-            }
-        }
-        else {
-            if ((indObrigatorio == 's') || (indObrigatorio == 'S')) {
-                obj.obrigatorio = 's';
-                if (objimg.length > 0) {
-                    objimg[i].style.display = '';
-                }
-                else {
-                    if (objimg != null)
-                        objimg.style.display = '';
-                }
-            }
-            else {
-                if (obj != null) {
-                    objimg.length
-                    obj.obrigatorio = 'n';
-
-                    if (objimg.length > 0) {
-                        objimg[i].style.display = 'none';
-                    }
-                    else {
-                        if (objimg != null)
-                            objimg.style.display = 'none';
-                    }
-                }
-            }
-        }
-    }
-</script>
-<script LANGUAGE="javascript" defer>
-    String.prototype.LTrim = new Function("return this.replace(/^\\s+/,'')")
-    String.prototype.RTrim = new Function("return this.replace(/\\s+$/,'')")
-    String.prototype.Trim = new Function("return this.replace(/^\\s+|\\s+$/g,'')")
-
-    var divAcao = new Array(100);
-    var captionBotoes = new Array(100);
-    var dimensao = 0;
-    var indice = 0;
-    function critica(form, acaoAtual, divsConteudo, CriticaSoCampoVisivel, mostraAguarde, DivBotao, botao) {
-        //alert(mostraAguarde)
-        //alert(acaoAtual)
-        //alert(document.forms(form));
-        //alert('acaoAtual: ' + acaoAtual + ', acao.value: ' + document.forms[form].acao);
-        //se acao for a mesma da atual vamos retornar false pois a ação já está ativa
-        //alert(document.forms[form].acao.value);
-        if (acaoAtual == document.forms[form].acao.value) {
-            return false;
-        }
-        var varNameRadioAnterior = "";
-        var varRadioAnterior;
-        var flgRadioChecked = false;
-        var acaoTemp = '';
-        var conteudoObrigatorio = '';
-        var tituloCampo = '';
-        var stemp = '';
-
-        if (acaoAtual != document.forms[form].acao.value && (acaoAtual == 'o' || acaoAtual == 'oo' || acaoAtual == 'ooo' || acaoAtual == 'oooo')
-			|| acaoAtual == 'True') {
-            // Se acao for de inclusão(i), alteração(a) ou parâmetro(p) de consulta valida campos obrigatórios...
-            if (document.forms[form].acao.value == 'i' ||
-					document.forms[form].acao.value == 'a' ||
-					document.forms[form].acao.value == 'p' ||
-					document.forms[form].acao.value == 'c' ||
-					acaoAtual == 'True') {
-                for (var i = 0; i <= document.forms[form].elements.length - 1; i++) {
-                    conteudoObrigatorio = (_ff ? document.forms[form].elements[i].lang.substr(0, 1) : document.forms[form].elements[i].obrigatorio);
-                    tituloCampo = (_ff ? document.forms[form].elements[i].lang.substr(1) : document.forms[form].elements[i].nomecampo);
-
-                    if ((conteudoObrigatorio == 'S' || conteudoObrigatorio == 's') &&
-						 (document.forms[form].elements[i].readOnly == false || typeof (document.forms[form].elements[i].readOnly) == 'undefined')) {
-                        // Verifica se é necessário criticar de acordo com a div que está sendo exibida
-                        if (!CriticaSoCampoVisivel ||
-								(CriticaSoCampoVisivel && document.forms[form].elements[i].nomeDiv == DivBotao)) {
-                            if (document.forms[form].elements[i].type != 'radio') {
-
-                                if (document.forms[form].elements[i].value.Trim() == '') {
-                                    alert('Informe o campo: ' + (tituloCampo != '' ? tituloCampo : document.forms[form].elements[i].name));
-                                    //alert(document.forms[form].elements[i].name + ' A ');
-                                    if (typeof (divAcao[0]) != 'undefined') {
-
-                                        for (var dim = 0; dim < divAcao.length - 1; dim++) {
-                                            if (divAcao[dim] != null) {
-                                                if (divAcao[dim].div != null) {
-                                                    if (document.forms[form].elements[i].nomeDiv == divAcao[dim].div) {
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    // Se estamos dentro de um esquema de divs de conteudo, vamos voltar para a div correspondente ao campo
-                                    if (divsConteudo != '' && typeof (divAcao[0]) != 'undefined') {
-                                        exibeGuiaConteudo(divsConteudo, document.forms[form].elements[i].nomeDiv, divAcao[dim].acao, document.forms[form], null)
-                                        //alert('teste->' + document.forms[form].acao.value)
-                                    }
-                                    document.forms[form].elements[i].focus();
-                                    return false;
-                                }
-                            } else {
-                                if (document.forms[form].elements[i].type == 'radio') {
-                                    // entra aqui quando encontra mais de um radio group
-                                    if (varNameRadioAnterior != "" && document.forms[form].elements[i].name != varNameRadioAnterior) {
-                                        if (flgRadioChecked == false) {
-                                            alert('Informe o campo: ' + varRadioAnterior.nomecampo);
-                                            varRadioAnterior.focus();
-                                            return false;
-                                        } else {
-                                            //Zera flag de checked para validar o segundo radio group
-                                            flgRadioChecked = false;
-                                        }
-                                    }
-                                    if (document.forms[form].elements[i].checked == true) {
-                                        flgRadioChecked = true;
-                                    }
-                                    varNameRadioAnterior = document.forms[form].elements[i].name;
-                                    varRadioAnterior = document.forms[form].elements[i];
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if (varNameRadioAnterior != "") {
-            if (flgRadioChecked == false) {
-                alert('Informe o campo: ' + varRadioAnterior.nomecampo);
-                varRadioAnterior.focus();
-                return false;
-            }
-        }
-
-        if (mostraAguarde) {
-            captionBotoes[indice] = new caption(botao.innerHTML, botao);
-            indice++;
-            if (_ie)
-                botao.innerHTML = '&nbsp;&nbsp;Aguarde...';
-            else
-                botao.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;Aguarde...';
-            botao.disabled = true;
-        }
-        return true;
-    }
-
-    var textoAjuda;
-    textoAjuda = '';
-    function MostraAjuda(objeto) {
-        var objAjuda = (_ie ? document.all('ajuda') : document.getElementById('ajuda'));
-
-        if (objAjuda != null) {
-            if (objeto.title != '') {
-                textoAjuda = objeto.title;
-                if (typeof (objAjuda.length) == 'undefined') {
-                    objAjuda.innerHTML = objeto.title;
-                } else {
-                    for (var i = 0; i < objAjuda.length; i++) {
-                        objAjuda[i].innerHTML = objeto.title;
-                    }
-                }
-            }
-        }
-    }
-
-    function EscondeAjuda() {
-        var objAjuda = (_ie ? document.all('ajuda') : document.getElementById('ajuda'));
-
-        if (objAjuda != null) {
-            if (textoAjuda != '') {
-                if (typeof (objAjuda.length) == 'undefined') {
-                    objAjuda.innerText = '';
-                } else {
-                    for (var i = 0; i < objAjuda.length; i++) {
-                        objAjuda[i].innerText = '';
-                    }
-                }
-            }
-        }
-    }
-
-    function validaCaracter(obj, valida, removeLineFeed, objE) {
-        var objEvent, teclaPressionada;
-        // Recupera a referência para o objeto evento
-        if (_ff) {
-            objEvent = objE;
-            teclaPressionada = objEvent.which;
-        }
-        else {
-            if (event == null) return true;
-            objEvent = event;
-            teclaPressionada = event.keyCode;
-        }
-
-        if (objEvent.type == 'blur') {
-            //"g" indica que a busca será global (para todas as ocorrências achadas)
-            //"i" indica que a pesquisa não diferenciará os caracteres maiúsculos e minúsculos (ignore case)
-            // Remove sempre o caracter de aspas (")
-            var regularExpression = new RegExp("\"", "gi");
-            obj.value = obj.value.replace(regularExpression, '');
-        }
-        if ((objEvent.type == 'keydown') || (objEvent.type == 'keyup') || (objEvent.type == 'keypress')) {
-
-            if (teclaPressionada == 34) {
-                alert('Caracter inválido!');
-                return (false);
-            }
-        }
-
-        if (!valida) return true;
-
-        if (objEvent.type == 'blur') {
-            //"g" indica que a busca será global (para todas as ocorrências achadas)
-            //"i" indica que a pesquisa não diferenciará os caracteres maiúsculos e minúsculos (ignore case)
-            var regularExpression = new RegExp("'|\"", "gi");
-            obj.value = obj.value.replace(regularExpression, '');
-
-            if (removeLineFeed) {
-                regularExpression = new RegExp("\r\n", "gi");
-                obj.value = obj.value.replace(regularExpression, ' ');
-            }
-        }
-        if ((objEvent.type == 'keydown') || (objEvent.type == 'keyup') || (objEvent.type == 'keypress')) {
-            if ((teclaPressionada == 39) || (teclaPressionada == 34)) {
-                alert('Caracter inválido!');
-                return (false);
-            } else {
-                return (true);
-            }
-        }
-    }
-
-    function transformaCampoObrigatorioArray(obj, indObrigatorio) {
-        for (var i = 0; i <= obj.length - 1; i++) {
-            transformaCampoObrigatorio(obj[i], indObrigatorio, i)
-        }
-    }
-
-    function Body_OnResize(div, pHeight) {
-        document.getElementById(div).style.width = document.body.clientWidth;
-        document.getElementById(div).style.height = document.body.clientHeight - pHeight;
-    }
-    function noScrollIE() {
-        document.body.scroll = "no"
-    }
-    function scrollIE() {
-        document.body.scroll = "yes"
-    }
-
-    function verificaMaximoCaracteres(obj) {
-        var textoArea = '';
-        if (obj.innerText.length > obj.maxlength) {
-            textoArea = obj.innerText
-            obj.innerText = obj.innerText = textoArea.substring(0, obj.maxlength)
-            alert('Você excedeu o máximo de caracteres permitido!\n\Máximo de caracteres permitido é: ' + obj.maxlength);
-            obj.focus();
-        }
-    }
-
-    // Função executada ao submeter a primeira vez e para impedir que o usuário fique submetendo mais vezes
-    function validaSubmitInterface() {
-        if (jaclicou == 1) {
-            alert("Sua solicitação já está sendo processada.\n\nCLIQUE EM OK E AGUARDE O PROCESSAMENTO...");
-            return false;
-        }
-        else {
-            jaclicou = 1;
-            return true;
-        }
-    }
-    // Objeto que armazena as divs de conteudo e as suas respectivas variáveis acao associadas
-    function caption(caption, botao) {
-        this.caption = caption;
-        this.botao = botao;
-    }
-
-    function monitoraAreaDeTexto(indicador, areaDeTexto, tamanhoMaximo) {
-        if (areaDeTexto.value.length > tamanhoMaximo) {
-            areaDeTexto.value = areaDeTexto.value.substring(0, tamanhoMaximo)
-        }
-        var qtdCaracteres = areaDeTexto.value.length;
-        document.getElementById(indicador).innerHTML = qtdCaracteres;
-    }
-
-
-
-    function sis() {
-        clearTimeout();
-    }
-</script>
-
-
-<!-- INCLUDES DE FUNÇÕES -->
-
-<script language="JavaScript1.2" src="acao.js"></script> 
-
-			<script language="Javascript">
-			    var jaclicou = 0;
-			    var agt = navigator.userAgent.toLowerCase();
-			    var _ie = ((agt.indexOf("msie") != -1));
-			    var _ff = ((agt.indexOf("firefox") != -1));
-			    var _ns = ((agt.indexOf("netscape") != -1));
-			</script>
-		<link rel="stylesheet" type="text/css" href="/apoio_sitarweb/includes/interface/CSS/Estilo.css"><table ID='tblCoolbar'  CELLPADDING='0' CELLSPACING='0' BORDER='0' WIDTH='100%'
-ONSELECTSTART='return false;'>
-
-				<td id="td">
-				<button type="button" id="botaoFlatDadosdaconsulta" onclick="if (critica('frmacao', 'p','', false,false, '', this)) { entrarParametros();; }" barraBotao="true"
-				style="white-space: nowrap;background: buttonface url(/apoio_sitarweb/includes/interface/coolbar/images/criterio.gif) 0px center no-repeat;  HEIGHT: 22px; FONT-FAMILY: Tahoma, Arial, Helvetica; FONT-SIZE: 8pt; FONT-COLOR: menutext; PADDING-LEFT: 12; MARGIN-LEFT: 0; " 
-				title="Dados da consulta">&nbsp;Dados da consulta&nbsp;</button>
+			<tr id="TRplus04786049719">
+				<td class="CampoCentro" width="*%">
+					047.860.497-19
 				</td>
-				<td id="td">
-				<button type="button" id="botaoFlatConsulta" onclick="if (critica('frmacao', 'w','', false,false, '', this)) { consultar();; }" barraBotao="true"
-				style="white-space: nowrap;background: buttonface url(/apoio_sitarweb/includes/interface/coolbar/images/Consultar.gif) 0px center no-repeat; Border-Right: thin inset; Border-Left = thin inset; Border-Bottom = thin inset; Border-Top = thin inset; HEIGHT: 22px; FONT-FAMILY: Tahoma, Arial, Helvetica; FONT-SIZE: 8pt; FONT-COLOR: menutext; PADDING-LEFT: 12; MARGIN-LEFT: 0; " 
-				title="Consulta">&nbsp;Consulta&nbsp;</button>
-				</td><td align='right' WIDTH='100%'>&nbsp;&nbsp;&nbsp;</td>
-</tr>
-</table>
-
-		<style type="text/css">
-			.dica {
-				Z-INDEX: 2; VISIBILITY: hidden; POSITION: absolute
-			}
-		</style>
-		<div class="dica" id="dica" style="TOP: 2px"></div>
-		<script LANGUAGE="JavaScript" SRC="/Apoio_Sitarweb/Includes/Interface/Dica/DicaPopUp.js"></script>
-		<script LANGUAGE="JavaScript" SRC="/Apoio_Sitarweb/Includes/Interface/Dica/Kill.js"></script>
-		<script LANGUAGE="JavaScript" SRC="/Apoio_Sitarweb/Includes/Interface/Dica/PassaMouse.js"></script>
-		<script LANGUAGE="JavaScript" SRC="/Apoio_Sitarweb/Includes/Interface/Dica/PegaMouse.js"></script>
-		<script LANGUAGE="JavaScript" SRC="/Apoio_Sitarweb/Includes/Interface/Dica/VerificaBrowser.js"></script>
-			<div id="divconteudo" name="divconteudo" style="display:; ">
-		<html lang="pt-br">
-		<body leftmargin="0" topmargin="0" >
-			<form method="post" style="margin-top:0px;" NAME="frmacao" id="frmacao" action="tela.asp">
-		<div id="divtela" name="divtela" style="display:none;  Width: 100%;">
-		<html lang="pt-br">
-		<body leftmargin="0" topmargin="0" >
-			<form method="post" style="margin-top:0px;" NAME="frmacao" id="frmacao" action="tela.asp">
-			<table cellSpacing="0" cellPadding="0" width="100%" border="0" align="center">
+				<td class="CampoCentro" width="*%">
+					BARBARA RAMOS ARISTON FAISSAL
+				</td>
+				<td class="CampoCentro" width="*%">
+					0
+				</td>
+				<td class="CampoCentro" width="*%">
+					0,00
+				</td>
+				<td class="CampoCentro" width="*%">
+					0
+				</td>
+				<td class="CampoCentro" width="*%">
+					0,00
+				</td>
+			</tr>
+			
+			<tr id="TRplus82791465715">
+				<td class="CampoCentro" width="*%">
+					827.914.657-15
+				</td>
+				<td class="CampoCentro" width="*%">
+					ROGÉRIO FAISSAL
+				</td>
+				<td class="CampoCentro" width="*%">
+					0
+				</td>
+				<td class="CampoCentro" width="*%">
+					0,00
+				</td>
+				<td class="CampoCentro" width="*%">
+					0
+				</td>
+				<td class="CampoCentro" width="*%">
+					0,00
+				</td>
+			</tr>
+		</table>
+		<table id="">
+			<tr>
+				<td>
+					<label class="SubTituloTela" id="subTitulofrmacao" name="subTitulofrmacao">Conselho</label>
+				</td>
+			</tr>
+		</table>
+		<table id="" class="Tabela">
+		</table>
+		<table id="" style="">
+			<tr>
+				<td height="25" style="">
+					<label class="SubTituloTela" id="subTitulofrmacao" name="subTitulofrmacao">Diretoria</label>
+				</td>
+			</tr>
+		</table>
+		<table id="" class="Tabela">
+			
+			<!--Foi alterado de estático 100% para dinâmico utilizando o parâmetro varTBWidthPlus e a property TBWidthPlus para atender a demanda 12073/2010. Esta alteração foi acordado junto ao analista do sistema dia 15/06/2010. -->
+			<table class="Tabela">
 				<tr>
-					<td class="lin"></td>
-				</tr>	
-				<tr bgcolor="#F0f0f0">
-					<td valign="middle" height="25">&nbsp;
-						<label class="TituloTela" id="titulofrmacao" name="titulofrmacao">Perfil das Empresas</label>
-					</td>
-				</tr>	
-			</table>
-		<input type="hidden" name="acao" id="acao" value="w" referencia="" nomeDiv="divtela">
-		<input type="hidden" name="chave" id="chave" value="00524045000165" referencia="" nomeDiv="divtela">
-		<input type="hidden" name="indCNPJCPF" id="indCNPJCPF" value="t" referencia="" nomeDiv="divtela">
-		<table id="" class="Tabela" style="border-collapse: collapse;" cellSpacing="1" cellPadding="1" width="100%" align="center" border="0">
-			<tr name="TRindTipoComparacao" id="TRindTipoComparacao" >
-			<td class="SubTituloDireita" id="TitindTipoComparacao" width="15%">Tipo de comparação:</td>
-			<td class="CampoEsquerda" id="TDindTipoComparacao" colspan="0" width="" valign="middle">
-				<table align="">
-				   <tr>
-				      <td>
-	   	    &nbsp;
-	   	
-	   	
-	   	<label for="indTipoComparacao0" accesskey="e" title="Selecione o tipo de comparação a ser utilizado na pesquisa.">
-	   	<input type="radio" id="indTipoComparacao0" name="indTipoComparacao"  referencia="" nomeDiv="divtela" value="e"  title="Selecione o tipo de comparação a ser utilizado na pesquisa." obrigatorio="s" nomecampo="Tipo de comparação"  onfocus=" MostraAjuda(this);" onblur=" EscondeAjuda();"><u>E</u>xata</label>
-	   	    &nbsp;
-	   	
-	   	
-	   	<label for="indTipoComparacao1" accesskey="i" title="Selecione o tipo de comparação a ser utilizado na pesquisa.">
-	   	<input type="radio" id="indTipoComparacao1" name="indTipoComparacao"  referencia="" nomeDiv="divtela" value="i"  title="Selecione o tipo de comparação a ser utilizado na pesquisa." obrigatorio="s" nomecampo="Tipo de comparação"  onfocus=" MostraAjuda(this);" onblur=" EscondeAjuda();"><u>I</u>niciando com</label>
-	   	    &nbsp;
-	   	
-	   	
-	   	<label for="indTipoComparacao2" accesskey="t" title="Selecione o tipo de comparação a ser utilizado na pesquisa.">
-	   	<input type="radio" id="indTipoComparacao2" name="indTipoComparacao"  referencia="" nomeDiv="divtela" value="c"  checked  title="Selecione o tipo de comparação a ser utilizado na pesquisa." obrigatorio="s" nomecampo="Tipo de comparação"  onfocus=" MostraAjuda(this);" onblur=" EscondeAjuda();">Con<u>t</u>endo</label>
-							</td>
-					      <td valign="middle">
-					         <label style="display:" id="ImgObrigatorioindTipoComparacao" name="ImgObrigatorioindTipoComparacao" title="Indica que o campo é de preenchimento obrigatório." valign="middle"><img id="ImgObrigatorioImagemindTipoComparacao" src="/Apoio_SITARWEB/includes/Interface/Images/setaEsquerdared.gif" alt="imagem"></label>
-					         <label name="msgindTipoComparacao" id="msgindTipoComparacao" style="display: none;"></label>
-					      </td>
-					   </tr>
-					</table>
-			</td>
-			</tr>
-			<tr name="TRNome" id="TRNome" >
-			<td class="SubTituloDireita" width="15%" id="TitNome">Nome da Entidade:</td>
-			<td class="CampoEsquerda" id="TDNome" colspan="0" width="" valign="middle">
-			<table border="0" align="">
-			   <tr>
-			      <td valign="middle">
-		<input class="CampoEstilo" type="text" name="Nome" id="Nome" size="40" referencia="" nomeDiv="divtela" maxlength="120" value="" title="Informe o nome ou parte do nome da entidade que será pesquisada" obrigatorio="n" nomecampo="Nome da Entidade" textoAjuda="Informe o nome ou parte do nome da entidade que será pesquisada" onfocus=" MostraAjuda(this);" onblur=" EscondeAjuda(); validaCaracter(this, true, null);" onKeyPress="if (!validaCaracter(this, true, null)){return false;} "  lang="nNome da Entidade">
-		
-		
-		      </td>
-		      <td valign="middle">
-		         <label style="display:none" id="ImgObrigatorioNome" name="ImgObrigatorioNome" title="Indica que o campo é de preenchimento obrigatório." valign="middle"><img id="ImgObrigatorioImagemNome" src="/Apoio_SITARWEB/includes/Interface/Images/setaEsquerdared.gif" alt="imagem"></label>
-		         <label name="msgNome" id="msgNome" style="display: none;"></label>
-		      </td>
-		   </tr>
-		</table>
-		</td>
-			</tr>
-			<script>
-				// Seta o valor do campo com o valor do request
-				document.frmacao.Nome.value = "";
-			</script>
-			<tr name="TRpNUMCNPJCPF" id="TRpNUMCNPJCPF" >
-			<td class="SubTituloDireita" width="15%" id="TitpNUMCNPJCPF">CNPJ/CPF da Entidade:</td>
-			<td class="CampoEsquerda" id="TDpNUMCNPJCPF" colspan="0" width="" valign="middle">
-			<table border="0" align="">
-			   <tr>
-			      <td valign="middle">
-		<input class="CampoEstilo" type="text" name="pNUMCNPJCPF" id="pNUMCNPJCPF" size="16" referencia="" nomeDiv="divtela" maxlength="14" value="" title="Informe o CNPJ/CPF para pesquisa" obrigatorio="" nomecampo="CNPJ/CPF da Entidade" textoAjuda="Informe o CNPJ/CPF para pesquisa" onfocus=" MostraAjuda(this);" onblur=" EscondeAjuda(); validaCaracter(this, true, null);" onKeyPress="if (!validaCaracter(this, true, null)){return false;} return SoNumero(event);"  lang="CNPJ/CPF da Entidade">
-		
-		
-		      </td>
-		      <td valign="middle">
-		         <label style="display:none" id="ImgObrigatoriopNUMCNPJCPF" name="ImgObrigatoriopNUMCNPJCPF" title="Indica que o campo é de preenchimento obrigatório." valign="middle"><img id="ImgObrigatorioImagempNUMCNPJCPF" src="/Apoio_SITARWEB/includes/Interface/Images/setaEsquerdared.gif" alt="imagem"></label>
-		         <label name="msgpNUMCNPJCPF" id="msgpNUMCNPJCPF" style="display: none;"></label>
-		      </td>
-		   </tr>
-		</table>
-		</td>
-			</tr>
-			<script>
-				// Seta o valor do campo com o valor do request
-				document.frmacao.pNUMCNPJCPF.value = "";
-			</script>
-		</table>
-		<table id="" class="Tabela" style="border-collapse: collapse;" cellSpacing="1" cellPadding="1" width="100%" align="center" border="0">
-			<tr >
-			<td class="SubTituloEsquerda"  width="*%" nowrap colspan="0" Rowspan="0" valign="middle">
-		
-		<label><font color='blue'>Para maiores informações clique no botão ajuda.</font></label>
-			</td>
-			</tr>
-		
-		</table><table ID='tblCoolbar'  CELLPADDING='0' CELLSPACING='0' BORDER='0' WIDTH='100%'
-ONSELECTSTART='return false;'>
-
-				<td id="td">
-				<button type="button" id="botaoFlatVoltar" onclick="if (critica('frmacao', 'v','', false,false, '', this)) { voltar();; }" barraBotao="true"
-				style="white-space: nowrap;background: buttonface url(/Apoio_SitarWeb/Includes/Interface/CoolBar/Images/Voltar.gif) 0px center no-repeat;  HEIGHT: 22px; FONT-FAMILY: Tahoma, Arial, Helvetica; FONT-SIZE: 8pt; FONT-COLOR: menutext; PADDING-LEFT: 12; MARGIN-LEFT: 0; " 
-				title="Voltar">&nbsp;Voltar&nbsp;</button>
-				</td>
-				<td id="td">
-				<button type="button" id="botaoFlatConfirmar" onclick="if (critica('frmacao', 'oo','', false,false, 'divtela', this)) { confirmar();; }" barraBotao="true"
-				style="white-space: nowrap;background: buttonface url(/Apoio_SitarWeb/Includes/Interface/CoolBar/Images/Confirmar.gif) 0px center no-repeat;  HEIGHT: 22px; FONT-FAMILY: Tahoma, Arial, Helvetica; FONT-SIZE: 8pt; FONT-COLOR: menutext; PADDING-LEFT: 12; MARGIN-LEFT: 0; " 
-				title="Confirmar">&nbsp;Confirmar&nbsp;</button>
-				</td>
-					<SCRIPT LANGUAGE=javascript ID=clientEventHandlersJS >
-						function executaon(e) {
-							var tecla = e.which;
-							if ( tecla == 13 ) {
-								if ( document.getElementById('divtela').style.display=='' ) {
-									if (critica('frmacao', 'oo','', false,false, 'divtela', this)) { confirmar();; }
-								}
-							}
-						}
-					</SCRIPT>
-					<SCRIPT LANGUAGE=javascript>document.onkeydown = executaon</SCRIPT>
-				<td id="td">
-				<button type="button" id="botaoFlatAjuda" onclick="if (critica('frmacao', 'ooo','', false,false, 'divtela', this)) { window.location.href='Ajuda.asp'; }" barraBotao="true"
-				style="white-space: nowrap;background: buttonface url(/Apoio_SitarWeb/Includes/Interface/Images/help.gif) 0px center no-repeat;  HEIGHT: 22px; FONT-FAMILY: Tahoma, Arial, Helvetica; FONT-SIZE: 8pt; FONT-COLOR: menutext; PADDING-LEFT: 12; MARGIN-LEFT: 0; " 
-				title="Ajuda">&nbsp;Ajuda&nbsp;</button>
-				</td><td align='right' WIDTH='100%'>&nbsp;<span class='TituloAjuda' id='ajuda'></span>&nbsp;&nbsp;</td>
-</tr>
-</table>
-
-		</form>
-		
-			<noscript>Seu navegador não suporta JavaScript!</noscript>
-		
-		</body>
-		</html>
-		</div>
-		
-		<div id="divconsulta" name="divconsulta" style="display:;  Width: 100%;">
-		<table cellSpacing="0" cellPadding="0" width="100%" border="0" align="center">
-			<tr>
-				<td class="lin"></td>
-			</tr>	
-			<tr bgcolor="#f0f0f0">
-				<td valign="middle" height="25" style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#D4D0C8', gradientType='1')" colspan="2">&nbsp;
-					<label class="TituloTela" id="titulofrmacao" name="titulofrmacao">Perfil das Empresas - LITORAL RADIODIFUSAO LTDA.</label>
-				</td>
-			</tr>	
-		</table>
-      <span style="display:''; width: 100%;" ID="ImgAguarde">
-         <br>
-         <center>
-         <img src="/Apoio_Sitarweb/Includes/Interface/Images/AguardeCarregandoDados.gif" width="224" height="66" alt="Aguarde...">
-         </center>
-      </span>
-      <script language="JavaScript">
-         document.getElementById("ImgAguarde").style.display = "none";
-      </script>
-		<table id="" class="Tabela" style="border-collapse: collapse;" cellSpacing="1" cellPadding="1" width="100%" align="center" border="0">
-			<tr>
-		<td class="SubTituloDireita" width="15%" nowrap>CNPJ:</td>
-		<td class="CampoEsquerda" width="*%" nowrap colspan="0">&nbsp;<label>00524045000165</label></td>
-			</tr>
-			<tr>
-		<td class="SubTituloDireita" width="15%" nowrap>Presidente:</td>
-		<td class="CampoEsquerda" width="*%" nowrap colspan="0">&nbsp;<label></label></td>
-			</tr>
-			<tr>
-		<td class="SubTituloDireita" width="15%" nowrap>Endereço:</td>
-		<td class="CampoEsquerda" width="*%" nowrap colspan="0">&nbsp;<label>PRACA  TIRADENTES - CENTRO</label></td>
-			</tr>
-			<tr>
-		<td class="SubTituloDireita" width="15%" nowrap>E-mail:</td>
-		<td class="CampoEsquerda" width="*%" nowrap colspan="0">&nbsp;<label></label></td>
-			</tr>
-			<tr>
-		<td class="SubTituloDireita" width="15%" nowrap>Capital Social:</td>
-		<td class="CampoEsquerda" width="*%" nowrap colspan="0">&nbsp;<label>70.000,00</label></td>
-			</tr>
-			<tr>
-		<td class="SubTituloDireita" width="15%" nowrap>Reserva de Capital:</td>
-		<td class="CampoEsquerda" width="*%" nowrap colspan="0">&nbsp;<label></label></td>
-			</tr>
-			<tr>
-		<td class="SubTituloDireita" width="15%" nowrap>Total:</td>
-		<td class="CampoEsquerda" width="*%" nowrap colspan="0">&nbsp;<label>70.000,00</label></td>
-			</tr>
-		</table>
-			<table cellSpacing="0" id="" cellPadding="0" width="100%" border="0" align="center" style="">
-				<tr bgcolor="#F0f0f0">
-			<td valign="middle" height="25" style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#D4D0C8', gradientType='1')">&nbsp;
-		<label class="SubTituloTela" id="subTitulofrmacao" name="subTitulofrmacao">Quadro Societário</label>
-			</td>
-				</tr>	
-			</table>
-		<table id="" class="Tabela" style="border-collapse: collapse;" cellSpacing="1" cellPadding="1" width="100%" align="center" border="0">
-	   
-	  <!--Foi alterado de estático 100% para dinâmico utilizando o parâmetro varTBWidthPlus e a property TBWidthPlus para atender a demanda 12073/2010. Esta alteração foi acordado junto ao analista do sistema dia 15/06/2010. -->
- 		<table class="Tabela" cellSpacing="1" cellPadding="4" width="100%" align="center" border="0">
-			<tr>
-					<th class="SubTituloCentro" width="*%">CNPJ / CPF
-					</th>
-					<th class="SubTituloCentro" width="*%">NOME
-					</th>
-					<th class="SubTituloCentro" width="*%">Quantidade<br>Ordinárias
-					</th>
-					<th class="SubTituloCentro" width="*%">Valor<br>Ordinárias
-					</th>
-					<th class="SubTituloCentro" width="*%">Quantidade<br>Preferenciais
-					</th>
-					<th class="SubTituloCentro" width="*%">Valor<br>Preferenciais
-					</th>
-			</tr>
-				
-				<tr id="TRplus04786049719">
-					<td class="CampoCentro" width="*%">
-						047.860.497-19
-					</td>
-					<td class="CampoCentro" width="*%">
-						BARBARA RAMOS ARISTON FAISSAL                               
-					</td>
-					<td class="CampoCentro" width="*%">
-						0
-					</td>
-					<td class="CampoCentro" width="*%">
-						0,00
-					</td>
-					<td class="CampoCentro" width="*%">
-						0
-					</td>
-					<td class="CampoCentro" width="*%">
-						0,00
-					</td>
-				</tr>
-				
-				<tr id="TRplus82791465715">
-					<td class="CampoCentro" width="*%">
-						827.914.657-15
-					</td>
-					<td class="CampoCentro" width="*%">
-						ROGÉRIO FAISSAL
-					</td>
-					<td class="CampoCentro" width="*%">
-						0
-					</td>
-					<td class="CampoCentro" width="*%">
-						0,00
-					</td>
-					<td class="CampoCentro" width="*%">
-						0
-					</td>
-					<td class="CampoCentro" width="*%">
-						0,00
-					</td>
-				</tr>
-		</table>
-			<table cellSpacing="0" id="" cellPadding="0" width="100%" border="0" align="center" style="">
-				<tr bgcolor="#F0f0f0">
-			<td valign="middle" height="25" style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#D4D0C8', gradientType='1')">&nbsp;
-		<label class="SubTituloTela" id="subTitulofrmacao" name="subTitulofrmacao">Conselho</label>
-			</td>
-				</tr>	
-			</table>
-		<table id="" class="Tabela" style="border-collapse: collapse;" cellSpacing="1" cellPadding="1" width="100%" align="center" border="0">
-		</table>
-			<table cellSpacing="0" id="" cellPadding="0" width="100%" border="0" align="center" style="">
-				<tr bgcolor="#F0f0f0">
-			<td valign="middle" height="25" style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#D4D0C8', gradientType='1')">&nbsp;
-		<label class="SubTituloTela" id="subTitulofrmacao" name="subTitulofrmacao">Diretoria</label>
-			</td>
-				</tr>	
-			</table>
-		<table id="" class="Tabela" style="border-collapse: collapse;" cellSpacing="1" cellPadding="1" width="100%" align="center" border="0">
-	   
-	  <!--Foi alterado de estático 100% para dinâmico utilizando o parâmetro varTBWidthPlus e a property TBWidthPlus para atender a demanda 12073/2010. Esta alteração foi acordado junto ao analista do sistema dia 15/06/2010. -->
- 		<table class="Tabela" cellSpacing="1" cellPadding="4" width="100%" align="center" border="0">
-			<tr>
 					<th class="SubTituloCentro" width="*%">CNPJ / CPF
 					</th>
 					<th class="SubTituloCentro" width="*%">NOME
@@ -1207,217 +136,66 @@ ONSELECTSTART='return false;'>
 					</th>
 					<th class="SubTituloCentro" width="*%">INDICAÇÃO
 					</th>
-			</tr>
+				</tr>
 				
 				<tr id="TRplus04786049719">
 					<td class="CampoCentro" width="*%">
 						047.860.497-19
 					</td>
 					<td class="CampoCentro" width="*%">
-						BARBARA RAMOS ARISTON FAISSAL                               
+						BARBARA RAMOS ARISTON FAISSAL
 					</td>
 					<td class="CampoCentro" width="*%">
 						DIRETORA
 					</td>
 					<td class="CampoCentro" width="*%">
-						&nbsp;
+						
 					</td>
 				</tr>
-		</table>
-				<table class="Tabela" cellSpacing="1" cellPadding="4" width="100%" align="center" border="0">
-					<tr>
-						<td class="SubTituloEsquerda" align="left" height="25">
-							Registro
-							<span class="TextoAzul2"><b>1</b> </span>
-							até
-							<span class="TextoAzul2"><b>1 </b></span>
-							de
-							<span class="TextoAzul2"><b>1</b></span>
-							registros
-						</td>
-						<td class="SubTituloDireita" height="25">
+			</table>
+			<table class="Tabela">
+				<tr>
+					<td class="SubTituloEsquerda"height="25">
+						Registro
+						<span class="TextoAzul2"><b>1</b> </span>
+						até
+						<span class="TextoAzul2"><b>1 </b></span>
+						de
+						<span class="TextoAzul2"><b>1</b></span>
+						registros
+					</td>
+					<td class="SubTituloDireita" height="25">
 						
-							Página:
-						&nbsp;[1]&nbsp;&nbsp;
-			            <script language="JavaScript">
-			            function IrPagina()
-			            {
-								var varflgAberta = false
-								// Verifica se a div já está aberta
-								// Se "sim" --> alimenta flag com status de abertura
-								// Senão --> abre a div
-								if (document.getElementById('DivPagInf').style.width == '25px')
-									varflgAberta = true;
-								else {
-									document.getElementById('DivPagInf').style.width = 25;
-									document.getElementById('LabelPagInf').innerHTML = 'Ir:';
-								}
-			               if (document.frmacao.PagInf.value == '') {
-			                  document.frmacao.PagInf.focus();
-			                  if (varflgAberta)
-										alert('Entre com o número da página para a qual deseja ir.');
-			               } else {
-									if (document.frmacao.PagInf.value == 1) {
-										document.frmacao.PagInf.focus();
-										alert('A página atual já é a 1!\nEntre com outro número de página.');
-									} else
-										if (document.frmacao.PagInf.value > 1 || document.frmacao.PagInf.value < 1) {
-											document.frmacao.PagInf.focus();
-											alert('Número de página inválida!\n\n   Entre com um número de página válido. Valores válidos: 1 a 1.');
-										} else {
-											if (varflgAberta) {
-												document.frmacao.action='tela.asp?nav='+document.frmacao.PagInf.value+'&c=1';
-												document.frmacao.submit();
-											}
-										}
-			               }
-			            }
-			            
-			            function AlteraNumReg()
-			            {
-								var varflgAberta = false
-								// Verifica se a div já está aberta
-								// Se "sim" --> alimenta flag com status de abertura
-								// Senão --> abre a div
-								if (document.getElementById('DivNumReg').style.width == '25px')
-									varflgAberta = true;
-								else {
-									document.getElementById('DivNumReg').style.width = 25;
-									document.getElementById('LabelNumReg').innerHTML = 'Reg:';
-								}
-			               if (document.frmacao.NumReg.value == '') {
-									document.frmacao.NumReg.focus();
-			                  if (varflgAberta)
-										alert('Entre com o número de registros a serem exibidos por página.');
-			               } else {
-									if (document.frmacao.NumReg.value == '') {
-										document.frmacao.NumReg.focus();
-										if (varflgAberta)
-											alert('O número de registros por página atual já é !\nEntre com outro valor.');
-									} else {
-										if (document.frmacao.NumReg.value <= 0) {
-											document.frmacao.NumReg.focus();
-											if (varflgAberta)
-												alert('Número de registros por página inválido.\nEntre com um valor maior do que zero.');
-										} else {
-											if (document.frmacao.NumReg.value > 1) {
-												alert('Número de registros por página inválido.\nEntre com um valor menor do que 1.');
-											} else {
-												if (varflgAberta) {
-													document.frmacao.action='tela.asp?c=1';
-													document.frmacao.submit();
-												}
-											}
-										}
-									}
-								}
-			            }
-			            </script>
-							&nbsp;&nbsp;<a style="cursor:pointer;" title="Navega para a página informada." onclick="IrPagina();"><b><label style="cursor:pointer;" id="LabelPagInf">[Ir]</label></b></a>
-							<span id="DivPagInf" style="overflow: hidden; height: 17px; width: 0px;">
-									<input type="text" class="CampoEstilo" size="2" id="PagInf" name="PagInf" title="Entre com o número da página para a qual deseja ir." onKeyPress="javascript: if ((event.keyCode==13)||(event.keyCode==32)){IrPagina();};">
-							</span>
-							
-								&nbsp;<a style="cursor:pointer;" title="Altera o número de registros exibidos por página." onclick="AlteraNumReg();"><b><label style="cursor:pointer;" id="LabelNumReg">[Reg]</label></b></a>
-								<span id="DivNumReg" style="overflow: hidden; height: 17px; width: 0px;">
-										<input type="text" class="CampoEstilo" size="2" id="NumReg" name="NumReg" value="" title="Entre com o número de registros a serem exibidos por página." onKeyPress="javascript: if ((event.keyCode==13)||(event.keyCode==32)){AlteraNumReg();};">
-								</span>
-							
-						</td>
-					</tr>
-				</table>
-		</table><table ID='tblCoolbar'  CELLPADDING='0' CELLSPACING='0' BORDER='0' WIDTH='100%'
-ONSELECTSTART='return false;'>
-
-				<td id="td">
-				<button type="button" id="botaoFlatVoltar" onclick="if (critica('frmacao', 'v','', false,false, 'divtela', this)) { window.location.href ='tela.asp';; }" barraBotao="true"
-				style="white-space: nowrap;background: buttonface url(/apoio_sitarweb/includes/interface/coolbar/images/Voltar.gif) 0px center no-repeat;  HEIGHT: 22px; FONT-FAMILY: Tahoma, Arial, Helvetica; FONT-SIZE: 8pt; FONT-COLOR: menutext; PADDING-LEFT: 12; MARGIN-LEFT: 0; " 
-				title="Voltar">&nbsp;Voltar&nbsp;</button>
-				</td>
-	<script language="JavaScript1.2">
-		function imprimirCoolBar(parNomeFormulario, obj)
-		{
-			//alert('document.location.href: ' + document.location.href + '\ndocument.location.pathname: ' + document.location.pathname + '\ndocument.location.host: ' + document.location.host + '\ndocument.location.hostname: ' + document.location.hostname + '\ndocument.location.hash: ' + document.location.hash);
-			var varActionAtual, varSeparador;
-			varActionAtual = document.forms(parNomeFormulario).action;
-
-			if (varActionAtual.indexOf('?') == -1)
-				varSeparador = "?"
-			else
-				varSeparador = "&"
-			
-			document.forms(parNomeFormulario).action = varActionAtual + varSeparador + "hdnImprimir=true";
-			document.forms(parNomeFormulario).target = "_blank";
-			document.forms(parNomeFormulario).submit();
-	   
-			// Declara variável que armazenará a referência para o botão atual
-			var varBotaoAtual;
-			varBotaoAtual = document.getElementById('acao' + document.forms(parNomeFormulario).acao.value);
-		
-			// Se o objeto acao + parAcaoAnterior não existir
-			if (varBotaoAtual == null)
-				varBotaoAtual = document.getElementById('botaoAtual');
-			
-		   document.forms(parNomeFormulario).action = varActionAtual;
-		   document.forms(parNomeFormulario).target = "_self";
-		}
-	</script>
-				<td id="td">
-				<button type="button" id="botaoFlat&nbsp;&nbsp;Imprimir" onclick="if (critica('frmacao', 'r','', false,false, 'divtela', this)) { recuperaValoresOriginais(); imprimirCoolBar('frmacao', this);; }" barraBotao="true"
-				style="white-space: nowrap;background: buttonface url(/apoio_sitarweb/includes/interface/coolbar/images/Imprimir.gif) 0px center no-repeat;  HEIGHT: 22px; FONT-FAMILY: Tahoma, Arial, Helvetica; FONT-SIZE: 8pt; FONT-COLOR: menutext; PADDING-LEFT: 12; MARGIN-LEFT: 0; " 
-				title="&nbsp;&nbsp;Imprimir">&nbsp;&nbsp;&nbsp;Imprimir&nbsp;</button>
-				</td>
-	<script language="JavaScript1.2">
-		function excelCoolBar(parNomeFormulario, obj)
-		{
-		    try{
-			    //alert('document.location.href: ' + document.location.href + '\ndocument.location.pathname: ' + document.location.pathname + '\ndocument.location.host: ' + document.location.host + '\ndocument.location.hostname: ' + document.location.hostname + '\ndocument.location.hash: ' + document.location.hash);
-			    var varActionAtual, varSeparador,varForm;
-			    //alert('action antes: ' + document.forms(parNomeFormulario).action );
-			    varForm = document.getElementById(parNomeFormulario);
-			    varActionAtual = varForm.action;
-    			
-			    if (varActionAtual.indexOf('?') == -1)
-				    varSeparador = "?"
-			    else
-				    varSeparador = "&"
-    			
-			    varForm.action = varActionAtual + varSeparador + "hdnImprimir=true&excel=true";
-			    varForm.target = "_blank";
-			    varForm.submit();
-    		   
-			    // Declara variável que armazenará a referência para o botão atual
-			    var varBotaoAtual;
-    			
-			    varBotaoAtual = document.getElementById('acao' + varForm.acao.value);
-    		
-			    // Se o objeto acao + parAcaoAnterior não existir
-			    if (varBotaoAtual == null)
-				    varBotaoAtual = document.getElementById('botaoAtual');
-    			
-		       varForm.action = varActionAtual;
-		       varForm.target = "_self";
-		    }catch(e){
-		        alert(e.message);
-		    }
-		}
-	</script>
-				<td id="td">
-				<button type="button" id="botaoFlatExportarExcel" onclick="if (critica('frmacao', 'x','', false,false, 'divtela', this)) { recuperaValoresOriginais(); excelCoolBar('frmacao', this);; }" barraBotao="true"
-				style="white-space: nowrap;background: buttonface url(/apoio_sitarweb/includes/interface/coolbar/images/Excel.gif) 0px center no-repeat;  HEIGHT: 22px; FONT-FAMILY: Tahoma, Arial, Helvetica; FONT-SIZE: 8pt; FONT-COLOR: menutext; PADDING-LEFT: 12; MARGIN-LEFT: 0; " 
-				title="Exportar Excel">&nbsp;Exportar Excel&nbsp;</button>
-				</td><td align='right' WIDTH='100%'>&nbsp;<span class='TituloAjuda' id='ajuda'></span>&nbsp;&nbsp;</td>
-</tr>
+						Página:
+						[1]
+						
+						<a style="cursor:pointer;" title="Navega para a página informada." onclick="IrPagina();"><b><label style="cursor:pointer;" id="LabelPagInf">[Ir]</label></b></a>
+						<span id="DivPagInf" style="overflow: hidden; height: 17px; width: 0px;">
+							<input type="text" class="CampoEstilo" size="2" id="PagInf" name="PagInf" title="Entre com o número da página para a qual deseja ir." onKeyPress="javascript: if ((event.keyCode==13)||(event.keyCode==32)){IrPagina();};">
+						</span>
+						
+						<a style="cursor:pointer;" title="Altera o número de registros exibidos por página." onclick="AlteraNumReg();"><b><label style="cursor:pointer;" id="LabelNumReg">[Reg]</label></b></a>
+						<span id="DivNumReg" style="overflow: hidden; height: 17px; width: 0px;">
+							<input type="text" class="CampoEstilo" size="2" id="NumReg" name="NumReg" value="" title="Entre com o número de registros a serem exibidos por página." onKeyPress="">
+						</span>
+						
+					</td>
+				</tr>
+			</table>
+		</table><table ID='tblCoolbar'>
+		<td id="td">
+			<button type="button" id="botaoFlatVoltar" onclick=""
+			title="Voltar">Voltar</button>
+		</td>
+		<td id="td">
+			<button type="button" id="botaoFlatImprimir" onclick=""
+			title="Imprimir">Imprimir</button>
+		</td>
+		<td id="td">
+			<button type="button" id="botaoFlatExportarExcel" onclick=""
+			title="Exportar Excel">Exportar Excel</button>
+			</td><td WIDTH='100%'><span class='TituloAjuda' id='ajuda'></span></td>
+		</tr>
+	</table>
 </table>
-
-		</table>
-		</div>
-		
-		</form>
-		
-			<noscript>Seu navegador não suporta JavaScript!</noscript>
-		
-		</body>
-		</html>
-		</div>
-		<script>function linkHelp(){return 'http://sistemas.anatel.gov.br/SIS/help/frameprincipal.asp?CodUsuario=0&CodSistema=371&SiglaSistema=SIACCO&NomeSistema=Sistema de Acompanhamento de Controle Societário&SISQSmodulo=0';}</script><noscript> Script para uso do help</noscript>
+</div>

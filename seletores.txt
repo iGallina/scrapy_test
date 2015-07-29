@@ -1,3 +1,0 @@
-seletores
-
-(#divconsulta table #subTitulofrmacao).val('Quadro Societário')
