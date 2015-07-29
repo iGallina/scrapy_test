@@ -10,11 +10,15 @@ class AnatelSpider(scrapy.Spider):
 	def parse(self, response):
 		count = 0
 		if response.css('.campoesquerda > label:nth-child(1)::text') == 'Erro inesperado, entre em contato com o administrador do sistema.':
-			print('F*CK!')
+			print('<<erro>>')
 			time.sleep(1)
 			Request(response.url[:243], callback=self.parse)
 		else:
 			for sel in response.css('#divconsulta table'):
+				if count == 4:
+					tds = sel.css('tr td::text').extract()
+					for td in tds:
+						print td.strip()
 				## table = sel.css('label::text').extract()
 				count = count + 1
 				## print table
