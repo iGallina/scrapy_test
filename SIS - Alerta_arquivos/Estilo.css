@@ -1,0 +1,846 @@
+TD
+{
+    FONT: 8pt Tahoma,Arial,verdana
+}
+BODY
+{
+    SCROLLBAR-FACE-COLOR: white;
+    FONT: 11pt Tahoma;
+    SCROLLBAR-HIGHLIGHT-COLOR: white;
+    SCROLLBAR-SHADOW-COLOR: #ccccff;
+    SCROLLBAR-ARROW-COLOR: #868dc6;
+    SCROLLBAR-TRACK-COLOR: #ffffff;
+    SCROLLBAR-DARKSHADOW-COLOR: #336699;
+    BACKGROUND-COLOR: white
+}
+A:active
+{
+    CURSOR: hand
+}
+A:hover
+{
+    CURSOR: hand;
+    COLOR: #0f55a9;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+}
+A:link
+{
+    CURSOR: hand;
+    COLOR: #0f55a9;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: transparent
+}
+.Caixa
+{
+    BORDER-RIGHT: black thin solid;
+    BORDER-TOP: black thin solid;
+    BORDER-LEFT: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+.CaixaDupla
+{
+    BORDER-RIGHT: black double;
+    BORDER-TOP: black double;
+    BORDER-LEFT: black double;
+    BORDER-BOTTOM: black double;
+    HEIGHT: 28cm
+}
+.CampoEstilo
+{
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    FONT-SIZE: 10px;
+    VERTICAL-ALIGN: middle;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: verdana;
+    BACKGROUND-COLOR: #eeeeee
+}
+.CampoSemBorda
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-SIZE: 10px;
+    VERTICAL-ALIGN: middle;
+    BORDER-LEFT: medium none;
+    COLOR: blue;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: verdana;
+    BACKGROUND-COLOR: white;
+    FONT-WEIGHT: bold;
+}
+.CampoFoco
+{
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: verdana;
+    BACKGROUND-COLOR: #ffffff
+}
+.BotaoPadraoCinza
+{
+    BORDER-RIGHT: lightgrey thin outset;
+    BORDER-TOP: lightgrey thin outset;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: lightgrey thin outset;
+    CURSOR: hand;
+    BORDER-BOTTOM: lightgrey thin outset;
+    FONT-FAMILY: Tahoma, Arial, Helvetica;
+    BACKGROUND-COLOR: #e3e6e3
+}
+
+.BotaoPadraoCinzaNegrito
+{
+    BORDER-RIGHT: lightgrey thin outset;
+    BORDER-TOP: lightgrey thin outset;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold;
+    BORDER-LEFT: lightgrey thin outset;
+    CURSOR: hand;
+    BORDER-BOTTOM: lightgrey thin outset;
+    FONT-FAMILY: Tahoma, Arial, Helvetica;
+    BACKGROUND-COLOR: #e3e6e3
+}
+
+.formatoA4
+{
+    HEIGHT: 28cm
+}
+.Wizard
+{
+    BACKGROUND-POSITION: right bottom;
+    BACKGROUND-IMAGE: url(../images/bgWizard.gif);
+    BACKGROUND-REPEAT: no-repeat
+}
+.Tabela
+{
+    FONT-SIZE: xx-small;
+    COLOR: #304692;
+    BACKGROUND-COLOR: lightgrey;
+    TEXT-DECORATION: none
+}
+.SubTituloCentroAzul
+{
+    FONT-SIZE: xx-small;
+    COLOR: #304692;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+.SubTituloDireita
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: right
+}
+.SubTituloEsquerda
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: left
+}
+.SubTituloEsquerdaBranco
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+
+.SubTituloJustificado
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: justify
+}
+.SubTituloCentro
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+.CampoEsquerda
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial,Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+.CampoEsquerdaVermelho
+{
+    FONT-SIZE: 8pt;
+    COLOR: red;
+    FONT-FAMILY: Tahoma, Arial,Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+
+.CampoEsquerdaHiLight
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial,Verdana;
+    BACKGROUND-COLOR: #c3d6e6;
+    TEXT-ALIGN: left
+}
+.CampoDireita
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma,Arial,Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: right
+}
+.CampoDireitaHiLight
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial,Verdana;
+    BACKGROUND-COLOR: #c3d6e6;
+    TEXT-ALIGN: right
+}
+.CampoJustificado
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial,Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: justify
+}
+.CampoJustificadoMenor
+{
+    FONT-SIZE: 7pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial,Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: justify
+}
+.CampoEsquerdaMenor
+{
+    FONT-SIZE: 7pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma,Arial,Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+.CampoDireitaMenor
+{
+    FONT-SIZE: 7pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial,Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: right
+}
+
+.CampoCentroMenor
+{
+    FONT-SIZE: 7pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+.SubTituloDireitaMenor
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 7pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: right
+}
+.SubTituloEsquerdaMenor
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 7pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: left
+}
+.SubTituloJustificadoMenor
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 7pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: justify
+}
+.SubTituloCentroMenor
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 7pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+
+.Titulo
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: gray;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #f4faff;
+    TEXT-ALIGN: center
+}
+.CampoCentro
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+.CampoCentroNavy
+{
+    FONT-SIZE: 8pt;
+    COLOR: Navy;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+.CampoCentroBlue
+{
+    FONT-SIZE: 8pt;
+    COLOR: Blue;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+.CampoCentroRed
+{
+    FONT-SIZE: 8pt;
+    COLOR: Red;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+.CampoCentroHiLight
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #c3d6e6;
+    TEXT-ALIGN: center
+}
+.TituloColunaTabela
+{
+    BORDER-RIGHT: black 1pt solid;
+    BORDER-TOP: black 1pt solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: black 1pt solid;
+    COLOR: black;
+    BORDER-BOTTOM: black 1pt solid;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    TEXT-ALIGN: center
+}
+.TabelaBorda
+{
+    BORDER-RIGHT: black 1pt solid;
+    BORDER-TOP: black 1pt solid;
+    BORDER-LEFT: black 1pt solid;
+    BORDER-BOTTOM: black 1pt solid
+}
+.lin
+{
+    HEIGHT: 1pt;
+    BACKGROUND-COLOR: black
+}
+LEGEND
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Tahoma, Arial, Verdana
+}
+UNKNOWN
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif
+}
+.textoAzul1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: xx-small;
+    COLOR: #0f55a9;
+    FONT-FAMILY: Tahoma, Arial, Verdana, Geneva, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.textoAzul2
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #0f55a9;
+    FONT-FAMILY: Tahoma, Arial, Geneva, Verdana, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.textoAzul3
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 15px;
+    COLOR: #0f55a9;
+    FONT-FAMILY: Tahoma, Arial, Geneva, Verdana, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.TituloTela
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: 'Trebuchet MS', Arial, Tahoma;
+    TEXT-DECORATION: none
+}
+.TituloAjuda
+{
+    FONT-SIZE: 10pt;
+    COLOR: red;
+    FONT-FAMILY: 'Trebuchet MS', Arial, Tahoma;
+    TEXT-DECORATION: none
+}
+.textoVermelho
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #ff0055;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    TEXT-DECORATION: none
+}
+.CampoEsquerdaBold
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    VERTICAL-ALIGN: middle;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+.SubTituloTela
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: 'Trebuchet MS', Arial, Tahoma;
+    TEXT-DECORATION: none
+}
+.SubTituloTelaEsquerda
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Arial;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.LabelTela
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white
+}
+.LabelTelaEsquerda
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+.LabelTelaDireita
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: right
+}
+.LabelTelaJustificado
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: justify;
+}
+.LabelTelaCentro
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #0f55a9;
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center;
+}
+.LabelTelaErro
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    WIDTH: 70%;
+    COLOR: red;
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+.CabecalhoRelatorio
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: black;
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Arial, Tahoma;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+.bordaBoleto
+{
+    BORDER-RIGHT: black 1pt;
+    BORDER-TOP: black 1pt solid;
+    BORDER-LEFT: black 1pt solid;
+    BORDER-BOTTOM: black 1pt
+}
+.TDBordaBoleto
+{
+    BORDER-RIGHT: black 1pt solid;
+    BORDER-TOP: black 1pt;
+    FONT-SIZE: 6pt;
+    BORDER-LEFT: black 1pt;
+    COLOR: black;
+    BORDER-BOTTOM: black 1pt solid;
+    FONT-FAMILY: Verdana
+}
+.lin
+{
+    BACKGROUND-COLOR: #0f55a9
+}
+.lic_hr
+{
+    BORDER-RIGHT: black 1pt;
+    BORDER-TOP: black 1pt solid;
+    BORDER-LEFT: black 1pt;
+    BORDER-BOTTOM: black 1pt;
+    BACKGROUND-COLOR: transparent
+}
+TABLE#tblCoolbar
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: buttonhighlight 1px solid;
+    PADDING-LEFT: 1px;
+    PADDING-BOTTOM: 1px;
+    BORDER-LEFT: buttonhighlight 1px solid;
+    COLOR: menutext;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+    BACKGROUND-COLOR: buttonface
+}
+TABLE#tblCoolbar TABLE
+{
+    BORDER-RIGHT: buttonface 1px solid;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: buttonface 1px solid;
+    PADDING-LEFT: 1px;
+    FONT-SIZE: 70%;
+    PADDING-BOTTOM: 1px;
+    BORDER-LEFT: buttonface 1px solid;
+    CURSOR: hand;
+    COLOR: menutext;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: buttonface 1px solid;
+    FONT-FAMILY: tahoma
+}
+.SeparadorCool
+{
+    WIDTH: 2pt
+}
+.ColunaCool
+{
+    BORDER-RIGHT: buttonhighlight 1pt solid;
+    BORDER-LEFT: buttonshadow 1pt solid;
+    HEIGHT: 16px
+}
+TABLE#tblMenuPopUp
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: buttonhighlight 1px solid;
+    PADDING-LEFT: 1px;
+    PADDING-BOTTOM: 1px;
+    BORDER-LEFT: buttonhighlight 1px solid;
+    COLOR: menutext;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+    BACKGROUND-COLOR: buttonface
+}
+TABLE#tblMenuPopUp TABLE
+{
+    BORDER-RIGHT: buttonface 1px solid;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: buttonface 1px solid;
+    PADDING-LEFT: 1px;
+    FONT-SIZE: 70%;
+    PADDING-BOTTOM: 1px;
+    BORDER-LEFT: buttonface 1px solid;
+    CURSOR: hand;
+    COLOR: menutext;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: buttonface 1px solid;
+    FONT-FAMILY: tahoma
+}
+.FundoTitulo
+{
+    BACKGROUND-COLOR: #f0f0f0
+}
+.BotaoCoolBar
+{
+    BORDER-LEFT-COLOR: buttonshadow;
+    BORDER-BOTTOM-COLOR: buttonhighlight;
+    BORDER-TOP-COLOR: buttonshadow;
+    BACKGROUND-COLOR: window;
+    BORDER-RIGHT-COLOR: buttonhighlight
+}
+.LinkColuna
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    CURSOR: hand;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: none
+}
+.TituloAlerta
+{
+    FONT-SIZE: 11px;
+    FONT-FAMILY: 'Trebuchet MS', Arial;
+    BACKGROUND-COLOR: #fff6bb
+}
+.ConteudoAlerta
+{
+    FONT-SIZE: 12px;
+    FONT-FAMILY: 'Trebuchet MS', Arial;
+    BACKGROUND-COLOR: #ebe6ec;
+    TEXT-ALIGN: justify
+}
+.BotaoTamanhofixo
+{
+    FONT-SIZE: 8pt;
+    OVERFLOW: scroll;
+    WIDTH: 85%;
+    CURSOR: hand;
+    FONT-FAMILY: Verdana, Arial;
+    POSITION: relative;
+    HEIGHT: 20px;
+    TEXT-ALIGN: center
+}
+
+.SemBorda
+{
+    TEXT-ALIGN: center
+}
+
+.BordaLeftTopTitle
+{
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-LEFT: lightgrey 1pt solid;
+    FONT-WEIGHT: bold;
+    COLOR: black;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+
+.BordaLeftTopRightTitle
+{
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-LEFT: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    FONT-WEIGHT: bold;
+    COLOR: black;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+
+.BordaBottomRightTitle
+{
+    BORDER-BOTTOM: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    FONT-WEIGHT: bold;
+    COLOR: black;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+
+.BordaBottomTitle
+{
+    BORDER-BOTTOM: lightgrey 1pt solid;
+    FONT-WEIGHT: bold;
+    COLOR: black;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+
+.BordaLeftTitle
+{
+    BORDER-LEFT: lightgrey 1pt solid;
+    FONT-WEIGHT: bold;
+    COLOR: black;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+.SemBordaTitle
+{
+    FONT-WEIGHT: bold;
+    COLOR: black;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center
+}
+
+.BordaLeftTop
+{
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-LEFT: lightgrey 1pt solid;
+	 TEXT-ALIGN: center
+}
+
+.BordaLeftTopRight
+{
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-LEFT: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    TEXT-ALIGN: center
+}
+
+.BordaBottomRight
+{
+    BORDER-BOTTOM: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    TEXT-ALIGN: center
+}
+
+.BordaTopRight
+{
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    TEXT-ALIGN: center
+}
+
+.BordaTop
+{
+    BORDER-TOP: lightgrey 1pt solid;
+    TEXT-ALIGN: center
+}
+
+.BordaBottom
+{
+    BORDER-BOTTOM: lightgrey 1pt solid;
+    TEXT-ALIGN: center
+}
+
+.BordaRight
+{
+    BORDER-RIGHT: lightgrey 1pt solid;
+    TEXT-ALIGN: center
+}
+.SubTituloCentroAzul
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: white;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    //BACKGROUND-COLOR: #D2E1A4;
+    BACKGROUND-COLOR: #8394A2;
+    TEXT-ALIGN: center;
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    BORDER-BOTTOM: lightgrey 1pt solid;
+    BORDER-LEFT: lightgrey 1pt solid;
+}
+
+.SubTituloCentroAzulClaro
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #ECF5FF;
+    TEXT-ALIGN: center;
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    BORDER-BOTTOM: lightgrey 1pt solid;
+    BORDER-LEFT: lightgrey 1pt solid;
+}
+
+.SubTituloDireitaAzulClaro
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #ECF5FF;
+    TEXT-ALIGN: right;
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    BORDER-BOTTOM: lightgrey 1pt solid;
+    BORDER-LEFT: lightgrey 1pt solid;
+}
+
+.CampoCentroCinzaClaro
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #eeeeee;
+    TEXT-ALIGN: center;
+    BORDER-TOP: lightgrey 1pt solid;
+    BORDER-RIGHT: lightgrey 1pt solid;
+    BORDER-BOTTOM: lightgrey 1pt solid;
+    BORDER-LEFT: lightgrey 1pt solid;
+}
+
+.CampoCentroAmarelo
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma, Arial, Verdana;
+    BACKGROUND-COLOR: #FFFFC6;
+    TEXT-ALIGN: center
+}
+
+INPUT.CampoTextoVermelho
+{
+	BORDER-RIGHT: red 1px solid;
+    BORDER-TOP: red 1px solid;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: red 3px solid;
+    BORDER-BOTTOM: red 1px solid;
+    FONT-FAMILY: Verdana;
+    HEIGHT: 17px;
+    BACKGROUND-COLOR: #eeeeee;
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="pt-br"><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>SIS - Alerta</title>
+<link rel="stylesheet" type="text/css" href="SIS%20-%20Alerta_arquivos/EstilosGerais.css">
+</head>
+<body topmargin="0" leftmargin="0">
+	<br>
+	<link rel="stylesheet" type="text/css" href="SIS%20-%20Alerta_arquivos/Estilo.css">
+	<form action="http://sistemas.anatel.gov.br/siacco/_Novo_Siacco/Relatorios/PerfilDasEmpresas/tela.asp?acao=w&amp;indtiposociedade=An%F4nima&amp;chave=00172069000100" style="position:absolute; Z-INDEX: -1;" method="post" name="frmForm">
+		<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td class="lin"></td>
+			</tr>	
+			<tr bgcolor="#f0f0f0">
+				<td style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#D4D0C8', gradientType='1')" colspan="2" height="25" valign="middle">&nbsp;
+					<label class="TituloTela" id="titulofrmForm" name="titulofrmForm">Mensagem</label>
+				</td>
+			</tr>	
+		</tbody></table>
+		<table id="" class="Tabela" style="border-collapse: collapse;" width="100%" align="center" border="0" cellpadding="1" cellspacing="1">
+		<tbody><tr>
+			<td class="SubTituloDireita" width="15%">Descrição:</td>
+			<!-- <td class="campoesquerda" width="*%"  colspan="0">&nbsp;<label>2Estamos temporariamente indisponíveis por problemas técnicos.</label></td> -->
+			<td class="campoesquerda" colspan="0" width="*%">&nbsp;<label>Erro inesperado, entre em contato com o administrador do sistema.</label></td>
+		</tr>
+		</tbody></table>
+		<table id="tblCoolbar" onselectstart="return false;" width="100%" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td id="tdacao">
+					<label for="acao" accesskey="O"><table style="background-color: threedface; color: menutext; border-color: threedface;" id="acao" acao="" onmouseover="button_over(this);" onmouseout="button_out(this);" onmousedown="button_down(this);" onmouseup="button_up(this); document.frmForm.submit();" title="OK" border="0" cellpadding="0" cellspacing="0">
+					<tbody><tr valign="middle">
+					<td style="padding: 1px;"><img src="SIS%20-%20Alerta_arquivos/Confirmar.gif" alt="OK" height="16" hspace="1" width="16" border="0"></td>
+					<td style="padding: 1px;" nowrap="nowrap"><span id="idTituloOK"><u>O</u>K</span>&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					</tbody></table></label>
+				</td>
+				<td id="idSepOK" class="SeparadorCool"><span class="ColunaCool"></span></td><td width="100%" align="right">&nbsp;<span class="TituloAjuda" id="ajuda"></span>&nbsp;&nbsp;</td>
+			</tr>
+		</tbody></table>
+	</form>
+
+
+<script language="javascript" defer="defer">
+	/* COOLBAR.JS */
+
+// Configura algumas constantes para a execução do script
+
+var sOffBackColor = "threedface";
+var sOffTextColor = "menutext"
+var sOffBorderColor = "threedface";
+var sOffPadding = "1px 1px 1px 1px";
+
+var sOverBackColor = "threedface";
+var sOverTextColor = "menutext"
+var sOverBorderColor = "threedhighlight threedshadow threedshadow threedhighlight";
+var sOverPadding = "1px 1px 1px 1px";
+
+var sDownBackColor = "window"
+var sDownTextColor = "menutext"
+var sDownBorderColor = "threedshadow threedhighlight threedhighlight threedshadow";
+var sDownPadding = "2px 0px 0px 2px";
+
+var sPaneName = "";
+var eActiveButton = null;
+
+//var divAcao = new Array(100);
+//var dimensao = 0;
+
+function SetButtonPadding(eButton,sPaddingStyle)
+{
+	eButton.rows[0].cells[0].style.padding = sPaddingStyle;
+	eButton.rows[0].cells[1].style.padding = sPaddingStyle;
+}
+	
+function SetButtonImage(eButton,sState)
+{
+	var eImg = eButton.rows[0].cells[0].children[0];
+	eImg = eImg.children[0];
+	if (eImg) 
+	{
+		var sImgSrc = eImg.src;
+		if (sImgSrc.match(/_(\w+)\.gif/)) 
+		{
+			eImg.src = sImgSrc.replace(RegExp.$1,sState);
+		}
+	}
+}
+	
+// 4 funções para manusear eventos dos botões
+
+function button_over(eButton)
+{
+
+	// Se estamos somente mexendo o mouse dentro do botão, vamos sair
+	if (window.event && eButton.contains(window.event.fromElement)) return false;
+
+	// Caso contrário, muda o estilo do botão
+	eButton.style.backgroundColor = sOverBackColor;
+	eButton.style.color = sOverTextColor;
+	if (eActiveButton != eButton)
+	{
+		eButton.style.borderColor = sOverBorderColor;
+		SetButtonImage(eButton,"over");
+	}
+}
+
+
+function button_out(eButton)
+{
+	// Se estamos somente mexendo o mouse dentro do botão, vamos sair
+	if (window.event && eButton.contains(window.event.toElement)) return false;
+
+	// Caso contrário, muda o estilo do botão
+	if (eActiveButton != eButton && eButton != null)
+	{
+		eButton.style.backgroundColor = sOffBackColor;
+		eButton.style.borderColor = sOffBorderColor;
+		eButton.style.color = sOffTextColor;
+		SetButtonPadding(eButton,sOffPadding);
+		SetButtonImage(eButton,"off")
+	}
+	else if(eButton != null)
+	{
+		eButton.style.backgroundColor = sDownBackColor;
+		eButton.style.borderColor = sDownBorderColor;
+		eButton.style.color = sDownTextColor;
+	}
+}
+
+function button_down(eButton)
+{
+	eButton.style.borderColor = sDownBorderColor;
+	SetButtonPadding(eButton,sDownPadding);
+}
+
+function button_up(eButton)
+{
+
+	// Se outro botão está ativo, reseta o botão
+	if (null != eActiveButton && eButton != eActiveButton)
+	{
+		eActiveButton.style.backgroundColor = sOffBackColor;
+		eActiveButton.style.borderColor = sOffBorderColor;
+		eActiveButton.style.color = sOffTextColor;
+		SetButtonImage(eActiveButton,"off");
+		SetButtonPadding(eActiveButton,sOffPadding);
+		eActiveButton = null; 
+
+		// insert code here for button hiding 
+		window.status = window.defaultStatus;
+	}
+
+	// Se o botão que clicamos não está ativo, torna-o ativo
+	if (eButton != eActiveButton)  
+	{
+		eActiveButton = eButton;
+		eActiveButton.style.borderColor = sDownBorderColor;
+		eActiveButton.style.color = sDownTextColor;
+		SetButtonPadding(eActiveButton,sDownPadding);
+		sPaneName = eActiveButton.id.replace(/tbl(.*)Button/,"$1");
+
+		// insert code here for button showing 
+		//window.status = "Now showing: " + sPaneName;
+	}
+	// Caso contrário, reseta o botão
+	else  
+	{
+		if (eActiveButton != null){
+			eActiveButton.style.backgroundColor = sOverBackColor;
+			eActiveButton.style.borderColor = sOverBorderColor;
+			eActiveButton.style.color = sOverTextColor;
+			SetButtonPadding(eActiveButton,sOverPadding);
+			eActiveButton = null;
+		}
+		// Inserir o código aqui para esconder o botão
+		window.status = window.defaultStatus;
+	}
+}
+</script></body></html>
